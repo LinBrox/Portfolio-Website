@@ -7,10 +7,6 @@ import AnimatedLetters from '../AnimatedLetters';
 const Home = () => {
   const [letterClass, setLetterClass] = useState('');
 
-  useEffect(() => {
-    setLetterClass('text-animate');
-  }, []);
-
   const nameArray = ['i', 'n', 't', 'o', 'n'];
   const jobArray = [
     'S',
@@ -31,22 +27,33 @@ const Home = () => {
     'p',
     'e',
     'r',
-    '.',
   ];
+  useEffect(() => {
+    setLetterClass('text-animate');
+
+    // Add a timeout to change the animation class after 4000ms (4 seconds)
+    const timeout = setTimeout(() => {
+      setLetterClass('text-animate-hover');
+    }, 4000);
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(timeout);
+  }, []);
+
 
   return (
     <div className="container home-page">
       <div className="text-zone">
         <h1>
           <span className={`${letterClass}`}>H</span>
-          <span className={`${letterClass}`}>i,</span>
+          <span className={`${letterClass} _12`}>i,</span>
           <br />
-          <span className={`${letterClass}`}>I</span>
-          <span className={`${letterClass}`}>{'\''}m</span>
+          <span className={`${letterClass} _13`}>I</span>
+          <span className={`${letterClass} _14`}>{'\''}m</span>
           <img src={LogoTitle} alt="developer"></img>
-          <AnimatedLetters letterClass={letterClass} strArray={nameArray} />
+          <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} />
           <br />
-          <AnimatedLetters letterClass={letterClass} strArray={jobArray} />
+          <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={22} />
         </h1>
         <h2>
           Frontend-Backend Developer / JavaScript & C# expert / Full-Stack{' '}
