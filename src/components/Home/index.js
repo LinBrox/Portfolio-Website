@@ -6,7 +6,7 @@ import AnimatedLetters from '../AnimatedLetters';
 import Logo from './Logo';
 
 const Home = () => {
-  const [letterClass, setLetterClass] = useState('');
+  const [letterClass, setLetterClass] = useState('text-animate');
 
   const nameArray = ['i', 'n', 't', 'o', 'n'];
   const jobArray = [
