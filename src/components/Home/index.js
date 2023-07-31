@@ -3,6 +3,7 @@ import LogoTitle from '../../assets/images/logo-s4.png';
 import './index.scss';
 import { useState, useEffect } from 'react';
 import AnimatedLetters from '../AnimatedLetters';
+import Logo from './Logo';
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('');
@@ -62,6 +63,7 @@ const Home = () => {
           CONTACT ME
         </Link>
       </div>
+      <Logo />
     </div>
   );
 };
